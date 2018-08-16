@@ -216,3 +216,5 @@ for_window [window_role="task_dialog"] floating enable
 # Background
 ############################
 exec_always feh -r -z --bg-fill ~/Pictures/Wall/*
+
+exec compton -b
