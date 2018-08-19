@@ -72,6 +72,9 @@ VCS_GIT_GITHUB_ICON=
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
+  vi-mode
+  common-aliases
+  python
 )
 
 source $ZSH/oh-my-zsh.sh
