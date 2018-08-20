@@ -1,4 +1,3 @@
-#
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -108,3 +107,10 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+####################
+# Todo.sh
+####################
+# path+=('/home/ravi/Documents/Linux/Tarballs/todo.txt_cli-2.11.0/todo.sh')
+alias t="todo.sh -cAtd ~/.todo/config"
+export TODO_ACTIONS_DIR=/home/ravi/.todo/actions
+export TODOTXT_DEFAULT_ACTION=ls
