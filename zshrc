@@ -11,11 +11,24 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 
 ####################
 #	Powerline
+#	Powerlevel9k
 ####################
 . /usr/lib/python3.7/site-packages/powerline/bindings/zsh/powerline.zsh
 
 POWERLEVEL9K_MODE=awesome-fontconfig
 VCS_GIT_GITHUB_ICON=
+
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(root_indicator battery context dir dir_writable vcs)
+
+#	Battery
+# POWERLEVEL9K_BATTERY_CHARGING_ICON=
+POWERLEVEL9K_BATTERY_CHARGING="yellow"
+POWERLEVEL9K_BATTERY_CHARGED="cyan"
+POWERLEVEL9K_BATTERY_LOW_THRESHOLD=15
+POWERLEVEL9K_BATTERY_ICON=
+POWERLEVEL9K_BATTERY_VERBOSE=false
+
+POWERLEVEL9K_BATTERY_STAGES=($' ' $' ' $' ' $' ' $' ')
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
