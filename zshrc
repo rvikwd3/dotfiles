@@ -125,5 +125,6 @@ source $ZSH/oh-my-zsh.sh
 ####################
 # path+=('/home/ravi/Documents/Linux/Tarballs/todo.txt_cli-2.11.0/todo.sh')
 alias t="todo.sh -cAtd ~/.todo/config"
+alias todoedit="$EDITOR ~/.todo/todo.txt"
 export TODO_ACTIONS_DIR=/home/ravi/.todo/actions
 export TODOTXT_DEFAULT_ACTION=ls

@@ -1,11 +1,11 @@
-#	VIMRC
-#
-#	Ravikiran Kawade
-#	2018-08-27
+"	VIMRC
+"
+"	Ravikiran Kawade
+"	2018-08-27
 
-####################
-# Pathogen
-####################
+""""""""""""""""""""
+" Pathogen
+""""""""""""""""""""
 
 execute pathogen#infect()
 
