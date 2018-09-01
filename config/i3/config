@@ -161,6 +161,10 @@ bar {
 # Ravi modified		#
 #########################
 
+# Startup Applications
+#	Dropbox Sync
+exec --no-startup-id dropbox-cli start
+
 # Hide border edges
 hide_edge_borders both
 

@@ -1,5 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+DEFAULT_USER=ravi
 
 # Path to your oh-my-zsh installation.
   export ZSH="/home/ravi/.oh-my-zsh"
@@ -9,26 +10,10 @@
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="powerlevel9k/powerlevel9k"
 
-####################
-#	Powerline
-#	Powerlevel9k
-####################
+#	Powerline & Powerlevel9K
+POWERLEVEL9K_MODE=nerdfont-fontconfig
 . /usr/lib/python3.7/site-packages/powerline/bindings/zsh/powerline.zsh
 
-POWERLEVEL9K_MODE=awesome-fontconfig
-VCS_GIT_GITHUB_ICON=
-
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(root_indicator battery context dir dir_writable vcs)
-
-#	Battery
-# POWERLEVEL9K_BATTERY_CHARGING_ICON=
-POWERLEVEL9K_BATTERY_CHARGING="yellow"
-POWERLEVEL9K_BATTERY_CHARGED="cyan"
-POWERLEVEL9K_BATTERY_LOW_THRESHOLD=15
-POWERLEVEL9K_BATTERY_ICON=
-POWERLEVEL9K_BATTERY_VERBOSE=false
-
-POWERLEVEL9K_BATTERY_STAGES=($' ' $' ' $' ' $' ' $' ')
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -57,10 +42,10 @@ POWERLEVEL9K_BATTERY_STAGES=($' ' $' ' $' ' $' ' $' ')
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -91,6 +76,7 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -120,11 +106,163 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-####################
+
+
+########################################
 # Todo.sh
-####################
+########################################
+
 # path+=('/home/ravi/Documents/Linux/Tarballs/todo.txt_cli-2.11.0/todo.sh')
 alias t="todo.sh -cAtd ~/.todo/config"
 alias todoedit="$EDITOR ~/.todo/todo.txt"
 export TODO_ACTIONS_DIR=/home/ravi/.todo/actions
 export TODOTXT_DEFAULT_ACTION=ls
+
+
+
+#########################################
+# Stylization
+#########################################
+
+#------------------
+# #	Icons
+#------------------
+VCS_GIT_GITHUB_ICON='\uf406'
+POWERLEVEL9K_VCS_GIT_GITHUB_ICON='\uf7a3'
+POWERLEVEL9K_TODO_ICON=
+POWERLEVEL9K_ROOT_ICON=
+POWERLEVEL9K_VCS_TAG_ICON=
+POWERLEVEL9K_HOME_ICON='\uf7db'
+
+#------------------
+# #	Custom Segments
+#------------------
+prompt_helloworld() {
+	local content='Ravi'
+	$1_prompt_segment "$0" "$2" "029" "231" "$content" "#"
+}
+
+prompt_customtodo() {
+  if $(hash todo.sh 2>&-); then
+    count=$(todo.sh ls | egrep "TODO: [0-9]+ of ([0-9]+) tasks shown" | awk '{ print $4 }')
+    if [[ "$count" = <-> ]]; then
+      "$1_prompt_segment" "$0" "$2" "grey50" "$DEFAULT_COLOR" "$count" 'TODO_ICON'
+    fi
+  fi
+}
+
+#------------------
+# #	Prompt
+#------------------
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(root_indicator context dir dir_writable vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(vi_mode status customtodo background_jobs history)
+
+
+#------------------
+# #	Battery
+#------------------
+# # #		Charging
+# POWERLEVEL9K_BATTERY_CHARGING_ICON=
+POWERLEVEL9K_BATTERY_CHARGING="yellow"
+POWERLEVEL9K_BATTERY_CHARGING_BACKGROUND="yellow"
+# # #		Charged
+POWERLEVEL9K_BATTERY_CHARGED="cyan"
+POWERLEVEL9K_BATTERY_CHARGED_BACKGROUND="115"
+POWERLEVEL9K_BATTERY_CHARGED_FOREGROUND="black"
+POWERLEVEL9K_BATTERY_LOW_THRESHOLD=15
+POWERLEVEL9K_BATTERY_ICON=
+POWERLEVEL9K_BATTERY_VERBOSE=false
+
+POWERLEVEL9K_BATTERY_STAGES=($' ' $' ' $' ' $' ' $' ')
+
+
+#-------------------------
+# #	Background Jobs
+#-------------------------
+POWERLEVEL9K_BACKGROUND_JOBS_BACKGROUND='grey23'
+POWERLEVEL9K_BACKGROUND_JOBS_FOREGROUND='080'
+
+
+#------------------
+# #	Context
+#------------------
+POWERLEVEL9K_CONTEXT_DEFAULT_BACKGROUND='039'
+POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND='015'
+POWERLEVEL9K_CONTEXT_REMOTE_BACKGROUND='176'
+POWERLEVEL9K_CONTEXT_REMOTE_FOREGROUND='015'
+
+
+#------------------
+# #	DIR
+#------------------
+POWERLEVEL9K_DIR_DEFAULT_BACKGROUND='004'
+POWERLEVEL9K_DIR_DEFAULT_FOREGROUND='231'
+POWERLEVEL9K_DIR_HOME_BACKGROUND='045'
+POWERLEVEL9K_DIR_HOME_FOREGROUND='231'
+POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND='039'
+POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND='231'
+
+# Home Directory Icon
+POWERLEVEL9K_HOME_FOLDER_ABBREVIATION="%F{015} $(print_icon 'HOME_ICON') %F{015}"
+# Directory delimiter
+POWERLEVEL9K_DIR_PATH_SEPARATOR="%F{015} $(print_icon 'LEFT_SUBSEGMENT_SEPARATOR') %F{015}"
+# Turn off Home & home subfolder icon
+POWERLEVEL9K_HOME_SUB_ICON=''
+POWERLEVEL9K_HOME_ICON=''
+# Truncation
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
+POWERLEVEL9K_SHORTEN_STRATEGY="default"
+POWERLEVEL9K_SHORTEN_DELIMITER='\uf752 '
+
+#------------------
+# #	DIR_WRITABLE
+#------------------
+POWERLEVEL9K_DIRWRITABLE_BACKGROUND='204'
+POWERLEVEL9K_DIRWRITABLE_FOREGROUND='015'
+
+
+#------------------
+# #	History
+#------------------
+POWERLEVEL9K_HISTORY_BACKGROUND='grey15'
+POWERLEVEL9K_HISTORY_FOREGROUND='231'
+
+
+#------------------
+# #	STATUS
+#------------------
+POWERLEVEL9K_STATUS_OK=false
+
+POWERLEVEL9K_STATUS_ERROR_BACKGROUND='204'
+POWERLEVEL9K_STATUS_ERROR_FOREGROUND='231'
+POWERLEVEL9K_STATUS_ERROR_VISUAL_IDENTIFIER_COLOR='015'
+
+
+#------------------
+# #	TODO	
+#------------------
+POWERLEVEL9K_TODO_BACKGROUND='045'
+POWERLEVEL9K_TODO_FOREGROUND='231'
+POWERLEVEL9K_CUSTOMTODO_BACKGROUND='045'
+POWERLEVEL9K_CUSTOMTODO_FOREGROUND='231'
+
+
+#------------------
+# #	VI_MODE
+#------------------
+#POWERLEVEL9K_VI_INSERT_MODE_STRING=''
+POWERLEVEL9K_VI_INSERT_MODE_STRING=''
+POWERLEVEL9K_VI_COMMAND_MODE_STRING='NORMAL'
+
+
+#------------------
+# #	VCS
+#------------------
+POWERLEVEL9K_VCS_CLEAN_BACKGROUND='080'
+POWERLEVEL9K_VCS_CLEAN_FOREGROUND='231'
+POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='069'
+POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND='231'
+POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='183'
+POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='231'
+
+
