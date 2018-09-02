@@ -199,6 +199,7 @@ client.background	$bg
 # MPV -		2 px border
 for_window [class="mpv"] floating enable
 for_window [class="mpv"] border pixel 2
+no_focus [class="mpv"]
 
 
 # Default Window Workspaces
