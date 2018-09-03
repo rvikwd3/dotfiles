@@ -72,6 +72,7 @@ plugins=(
   vi-mode
   common-aliases
   python
+  zsh-completions
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -106,6 +107,11 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+########################################
+# Completion
+########################################
+autoload -Uz compinit
+compinit
 
 
 ########################################
@@ -266,4 +272,3 @@ POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='183'
 POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='231'
 # Customization
 POWERLEVEL9K_HIDE_BRANCH_ICON=true
-
