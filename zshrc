@@ -2,6 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 DEFAULT_USER=ravi
 
+
 # Path to your oh-my-zsh installation.
   export ZSH="/home/ravi/.oh-my-zsh"
 
@@ -106,6 +107,9 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias neofetch="echo && neofetch"
+alias print256colours="bash /home/ravi/Documents/Code/Scripts/print256colours.sh"
+
 
 ########################################
 # Completion
@@ -272,3 +276,9 @@ POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='183'
 POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='231'
 # Customization
 POWERLEVEL9K_HIDE_BRANCH_ICON=true
+
+
+# Show calendar agenda
+# gcalcli --calendar 'rvikwd7@gmail.com' agenda
+# Show todo.txt
+todo.sh ls

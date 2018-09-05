@@ -12,6 +12,7 @@ font pango:Noto Mono 12px, Source Code Pro 12px, monospace 8
 floating_modifier $mod
 
 # start a terminal
+# bindsym $mod+Return exec xfce4-terminal -e "gcalcli --calendar 'rvikwd7@gmail.com' calw"
 bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
@@ -25,10 +26,10 @@ bindsym $mod+d exec rofi -show window
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+semicolon focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -37,10 +38,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-#bindsym $mod+Shift+h move left
-#bindsym $mod+Shift+j move down
-#bindsym $mod+Shift+k move up
-#bindsym $mod+Shift+l move right
+#bindsym $mod+Shift+j move left
+#bindsym $mod+Shift+k move down
+#bindsym $mod+Shift+l move up
+#bindsym $mod+Shift+semicolon move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -49,10 +50,10 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+Shift+h split h
+bindsym $mod+h split v
 
 # split in vertical orientation
-bindsym $mod+Shift+v split v
+bindsym $mod+v split h
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -303,3 +304,5 @@ gaps outer 	0
 # Smart Borders
 smart_borders 	on
 
+
+# vim:filetype=i3config
