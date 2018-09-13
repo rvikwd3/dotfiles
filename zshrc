@@ -1,6 +1,7 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 DEFAULT_USER=ravi
+JAVA_HOME=/usr/lib/jvm/java-8-openjdk
 
 
 # Path to your oh-my-zsh installation.
@@ -109,6 +110,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias neofetch="echo && neofetch"
 alias print256colours="bash /home/ravi/Documents/Code/Scripts/print256colours.sh"
+alias mpvur="mpv --profile=ur"
 
 
 ########################################
@@ -205,7 +207,7 @@ POWERLEVEL9K_CONTEXT_REMOTE_FOREGROUND='015'
 #------------------
 # #	DIR
 #------------------
-POWERLEVEL9K_DIR_DEFAULT_BACKGROUND='004'
+POWERLEVEL9K_DIR_DEFAULT_BACKGROUND='075'
 POWERLEVEL9K_DIR_DEFAULT_FOREGROUND='231'
 POWERLEVEL9K_DIR_HOME_BACKGROUND='045'
 POWERLEVEL9K_DIR_HOME_FOREGROUND='231'
@@ -227,8 +229,10 @@ POWERLEVEL9K_SHORTEN_DELIMITER='\uf752 '
 #------------------
 # #	DIR_WRITABLE
 #------------------
-POWERLEVEL9K_DIRWRITABLE_BACKGROUND='204'
-POWERLEVEL9K_DIRWRITABLE_FOREGROUND='015'
+#POWERLEVEL9K_DIRWRITABLE_BACKGROUND='204'
+#POWERLEVEL9K_DIRWRITABLE_FOREGROUND='015'
+POWERLEVEL9K_DIR_WRITABLE_FORBIDDEN_BACKGROUND='203'
+POWERLEVEL9K_DIR_WRITABLE_FORBIDDEN_FOREGROUND='254'
 
 
 #------------------
