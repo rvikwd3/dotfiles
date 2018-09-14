@@ -3,6 +3,8 @@
 DEFAULT_USER=ravi
 JAVA_HOME=/usr/lib/jvm/java-8-openjdk
 
+# Run Python-PyWal
+(cat /home/ravi/.cache/wal/sequences &)
 
 # Path to your oh-my-zsh installation.
   export ZSH="/home/ravi/.oh-my-zsh"
@@ -111,6 +113,7 @@ source $ZSH/oh-my-zsh.sh
 alias neofetch="echo && neofetch"
 alias print256colours="bash /home/ravi/Documents/Code/Scripts/print256colours.sh"
 alias mpvur="mpv --profile=ur"
+alias colorblocks="python /home/ravi/Documents/Code/Scripts/colorblocks/colorblocks.py"
 
 
 ########################################
@@ -199,25 +202,25 @@ POWERLEVEL9K_BACKGROUND_JOBS_FOREGROUND='080'
 # #	Context
 #------------------
 POWERLEVEL9K_CONTEXT_DEFAULT_BACKGROUND='039'
-POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND='015'
+POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND='231'
 POWERLEVEL9K_CONTEXT_REMOTE_BACKGROUND='176'
-POWERLEVEL9K_CONTEXT_REMOTE_FOREGROUND='015'
+POWERLEVEL9K_CONTEXT_REMOTE_FOREGROUND='231'
 
 
 #------------------
 # #	DIR
 #------------------
-POWERLEVEL9K_DIR_DEFAULT_BACKGROUND='075'
+POWERLEVEL9K_DIR_DEFAULT_BACKGROUND='004'
 POWERLEVEL9K_DIR_DEFAULT_FOREGROUND='231'
-POWERLEVEL9K_DIR_HOME_BACKGROUND='045'
+POWERLEVEL9K_DIR_HOME_BACKGROUND='006'
 POWERLEVEL9K_DIR_HOME_FOREGROUND='231'
-POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND='039'
+POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND='005'
 POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND='231'
 
 # Home Directory Icon
-POWERLEVEL9K_HOME_FOLDER_ABBREVIATION="%F{015} $(print_icon 'HOME_ICON') %F{015}"
+POWERLEVEL9K_HOME_FOLDER_ABBREVIATION="%F{231} $(print_icon 'HOME_ICON') %F{231}"
 # Directory delimiter
-POWERLEVEL9K_DIR_PATH_SEPARATOR="%F{015} $(print_icon 'LEFT_SUBSEGMENT_SEPARATOR') %F{015}"
+POWERLEVEL9K_DIR_PATH_SEPARATOR="%F{231} $(print_icon 'LEFT_SUBSEGMENT_SEPARATOR') %F{231}"
 # Turn off Home & home subfolder icon
 POWERLEVEL9K_HOME_SUB_ICON=''
 POWERLEVEL9K_HOME_ICON=''
@@ -255,9 +258,9 @@ POWERLEVEL9K_STATUS_ERROR_VISUAL_IDENTIFIER_COLOR='015'
 #------------------
 # #	TODO	
 #------------------
-POWERLEVEL9K_TODO_BACKGROUND='045'
+POWERLEVEL9K_TODO_BACKGROUND='006'
 POWERLEVEL9K_TODO_FOREGROUND='231'
-POWERLEVEL9K_CUSTOMTODO_BACKGROUND='045'
+POWERLEVEL9K_CUSTOMTODO_BACKGROUND='006'
 POWERLEVEL9K_CUSTOMTODO_FOREGROUND='231'
 
 
@@ -282,7 +285,24 @@ POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='231'
 POWERLEVEL9K_HIDE_BRANCH_ICON=true
 
 
+
+
+########################################
+#	Terminal Load
+########################################
+
+function echo_blank() {
+  echo
+  echo
+}
+preexec_functions+=echo_blank
+precmd_functions+=echo_blank
+
 # Show calendar agenda
 # gcalcli --calendar 'rvikwd7@gmail.com' agenda
+
+# Colorblocks
+colorblocks -g 0 -m 10 -M 20
+
 # Show todo.txt
 todo.sh ls
