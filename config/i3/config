@@ -11,6 +11,11 @@ font pango:Noto Mono 12px, Source Code Pro 12px, monospace 8
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+# Move container to top-right position
+bindsym $mod+KP_Prior exec ~/Documents/Code/Scripts/xdotool-mpv-topright.sh
+bindsym $mod+KP_Next exec ~/Documents/Code/Scripts/xdotool-mpv-botright.sh
+bindsym $mod+KP_Begin move absolute position center
+
 # start a terminal
 # bindsym $mod+Return exec xfce4-terminal -e "gcalcli --calendar 'rvikwd7@gmail.com' calw"
 bindsym $mod+Return exec i3-sensible-terminal
@@ -166,14 +171,15 @@ bindsym $mod+r mode "resize"
 #	Dropbox Sync
 exec --no-startup-id dropbox-cli start
 exec killall polybar; polybar ravi
-exec_always notify-send "Restarted i3 coniguration"
 
 #	PyWal Theme
 #		Randomizer to select wallpaper backgrounds
 #		DOESNT WORK
 #set $ocdir	exec bash /home/ravi/Documents/Code/Scripts/random-wallpaper-folder.sh
 #exec		 notify-send "Dir is=$ocdir"
-exec_always	wal -i "/home/ravi/Pictures/Wall"; notify-send "Executed PyWal"
+#	Load Dunst with ~/.cache/wal/colors.Xresources colors
+exec_always	wal -i "/home/ravi/Pictures/Wall" && ~/Documents/Code/Scripts/i3-reload-dunst.sh
+exec_always notify-send "Restarted i3 coniguration"
 
 # Hide border edges
 hide_edge_borders both

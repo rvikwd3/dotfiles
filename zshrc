@@ -113,6 +113,7 @@ source $ZSH/oh-my-zsh.sh
 alias neofetch="echo && neofetch"
 alias print256colours="bash /home/ravi/Documents/Code/Scripts/print256colours.sh"
 alias mpvur="mpv --profile=ur"
+alias mpvbr="mpv --profile=br"
 alias colorblocks="python /home/ravi/Documents/Code/Scripts/colorblocks/colorblocks.py"
 
 
@@ -279,7 +280,7 @@ POWERLEVEL9K_VCS_CLEAN_BACKGROUND='080'
 POWERLEVEL9K_VCS_CLEAN_FOREGROUND='231'
 POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='069'
 POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND='231'
-POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='183'
+POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='135'
 POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='231'
 # Customization
 POWERLEVEL9K_HIDE_BRANCH_ICON=true
@@ -291,18 +292,18 @@ POWERLEVEL9K_HIDE_BRANCH_ICON=true
 #	Terminal Load
 ########################################
 
-function echo_blank() {
-  echo
-  echo
-}
-preexec_functions+=echo_blank
-precmd_functions+=echo_blank
+#function echo_blank() {
+#  echo
+#  echo
+#}
+#preexec_functions+=echo_blank
+#precmd_functions+=echo_blank
 
 # Show calendar agenda
 # gcalcli --calendar 'rvikwd7@gmail.com' agenda
 
 # Colorblocks
-colorblocks -g 0 -m 10 -M 20
+colorblocks -g 0 -m 20 -M 40 && tput cnorm
 
 # Show todo.txt
 todo.sh ls
