@@ -140,6 +140,9 @@ export TODOTXT_DEFAULT_ACTION=ls
 # Stylization
 #########################################
 
+#POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR=''
+#POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR=''
+
 #------------------
 # #	Icons
 #------------------

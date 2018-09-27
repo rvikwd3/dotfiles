@@ -24,7 +24,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec rofi -show run
+bindsym $mod+d exec rofi -show run -theme Monokai
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -143,6 +143,18 @@ mode "resize" {
         bindsym Up resize shrink height 10 px or 10 ppt
         bindsym Right resize grow width 10 px or 10 ppt
 
+	# Smaller resize
+        bindsym Shift+h resize shrink width 5 px or 5 ppt
+        bindsym Shift+j resize grow height 5 px or 5 ppt
+        bindsym Shift+k resize shrink height 5 px or 5 ppt
+        bindsym Shift+l resize grow width 5 px or 5 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Shift+Left resize shrink width 5 px or 5 ppt
+        bindsym Shift+Down resize grow height 5 px or 5 ppt
+        bindsym Shift+Up resize shrink height 5 px or 5 ppt
+        bindsym Shift+Right resize grow width 5 px or 5 ppt
+
         # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
         bindsym Escape mode "default"
@@ -163,12 +175,43 @@ bindsym $mod+r mode "resize"
 #        status_command i3status
 #}
 
+
+
 #########################
 # Ravi modified		#
 #########################
+# i3-gaps
+# 	Smart Gaps
+# 	Only have gaps when more than one container is on the workspace
+smart_gaps	on
+
+# Inititalize i3 with 25 gaps
+gaps inner	25
+gaps outer 	0
+
+# Smart Borders
+smart_borders 	on
+
+# Hide border edges
+hide_edge_borders both
+
+# Hide all borders
+for_window [class="^.*"] border pixel 10
+default_border none
+
+
+# Auto back & forth between workspaces
+#workspace_auto_back_and_forth yes
+
+# Scratchpad key chords
+bindsym $mod+Shift+minus 	move scratchpad
+bindsym $mod+minus		scratchpad show
+
+
 
 # Startup Applications
 #	Dropbox Sync
+exec compton -b --config .config/.compton.conf
 exec --no-startup-id dropbox-cli start
 exec killall polybar; polybar ravi
 
@@ -181,19 +224,7 @@ exec killall polybar; polybar ravi
 exec_always	wal -i "/home/ravi/Pictures/Wall" && ~/Documents/Code/Scripts/i3-reload-dunst.sh
 exec_always notify-send "Restarted i3 coniguration"
 
-# Hide border edges
-hide_edge_borders both
 
-# Hide all borders
-for_window [class="^.*"] border pixel 10
-default_border none
-
-# Auto back & forth between workspaces
-#workspace_auto_back_and_forth yes
-
-# Scratchpad key chords
-bindsym $mod+Shift+minus 	move scratchpad
-bindsym $mod+minus		scratchpad show
 
 # Window Decoration Colors
 # set $bg		#B7EAFF
@@ -211,6 +242,9 @@ client.placeholder      $bg	$bg	$fg	$bg		$bg
 
 client.background	$bg
 
+
+
+
 #########################
 # Window Specific	#
 #########################
@@ -224,6 +258,9 @@ no_focus [class="mpv"]
 # Default Window Workspaces
 assign [class="chromium"] $ws3 
 assign [class="Chromium"] $ws3 
+
+
+
 
 #########################
 # FN Keys		#
@@ -284,6 +321,9 @@ bindsym XF86AudioMute        exec $volumepath/volume -amn -t $statuscmd -u $stat
 #bindsym XF86AudioLowerVolume exec amixer sset 'Master' 5%-
 #bindsym XF86AudioRaiseVolume exec amixer sset 'Master' 5%+ 
 
+
+
+
 #########################
 # ArchWiki i3 Tips	#
 #########################
@@ -295,12 +335,14 @@ bindsym $mod+x [urgent=latest] focus
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
 
+
+
 #########################
 # Background		#
 #########################
 #exec_always feh -r -z --bg-fill ~/Pictures/Wall/*
 
-exec compton -b --config .config/.compton.conf
+
 
 #########################
 # Airblader i3-gaps	#
@@ -342,17 +384,6 @@ mode "$mode_gaps_outer" {
 	bindsym Return	mode "default"
 	bindsym Escape	mode "default"
 }
-
-# Smart Gaps
-# 	Only have gaps when more than one container is on the workspace
-smart_gaps	on
-
-# Inititalize i3 with 25 gaps
-gaps inner	25
-gaps outer 	0
-
-# Smart Borders
-smart_borders 	on
 
 
 # vim:filetype=i3config

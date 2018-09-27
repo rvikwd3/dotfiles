@@ -24,3 +24,10 @@ hi Comment      ctermfg=246	ctermbg=NONE    cterm=NONE      guifg=#9B9B9B	guibg=
 let g:airline_powerline_fonts = 1
 let g:airline_theme='minimalist'
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#vimtex#enabled = 1
+let g:airline#extensions#vimtex#continuous = "c"
+
+""""""""""""""""""""""""""
+"	vim latex
+""""""""""""""""""""""""""
+let g:livepreview_previewer = 'zathura'
