@@ -1,11 +1,58 @@
+# =========================================================
+#		 ███████╗███████╗██╗  ██╗██████╗  ██████╗
+#		 ╚══███╔╝██╔════╝██║  ██║██╔══██╗██╔════╝
+#		   ███╔╝ ███████╗███████║██████╔╝██║
+#		  ███╔╝  ╚════██║██╔══██║██╔══██╗██║
+#		 ███████╗███████║██║  ██║██║  ██║╚██████╗
+#		 ╚══════╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝
+# =========================================================
+
+# Ravikiran Kawade
+# Last Updated: 2018-09-29
+
+# Preamble				{{{
+#===========================
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 DEFAULT_USER=ravi
 JAVA_HOME=/usr/lib/jvm/java-8-openjdk
 
-# Run Python-PyWal
-(cat /home/ravi/.cache/wal/sequences &)
+(cat /home/ravi/.cache/wal/sequences &) # Run Python-PyWal 
+#========================}}}
+# Aliases				{{{1
+#===========================
+#
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+alias neofetch="echo && neofetch"
+alias print256colours="bash /home/ravi/Documents/Code/Scripts/print256colours.sh"
+alias mpvur="mpv --profile=ur"
+alias mpvbr="mpv --profile=br"
+alias colorblocks="python /home/ravi/Documents/Code/Scripts/colorblocks/colorblocks.py"
+# Todo.sh				{{{2
+#---------------------------
 
+# path+=('/home/ravi/Documents/Linux/Tarballs/todo.txt_cli-2.11.0/todo.sh')
+alias t="todo.sh -cAtd ~/.todo/config"
+alias todoedit="$EDITOR ~/.todo/todo.txt"
+export TODO_ACTIONS_DIR=/home/ravi/.todo/actions
+export TODOTXT_DEFAULT_ACTION=ls
+#-----------------------}}}2
+#=======================}}}1
+# Completion			{{{
+#==========================
+
+autoload -Uz compinit
+compinit
+#=======================}}}
+# OH-MY-ZSH					{{{1
+#===============================
 # Path to your oh-my-zsh installation.
   export ZSH="/home/ravi/.oh-my-zsh"
 
@@ -18,6 +65,8 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 POWERLEVEL9K_MODE=nerdfont-fontconfig
 . /usr/lib/python3.7/site-packages/powerline/bindings/zsh/powerline.zsh
 
+# OhMyZsh Defaults			{{{2
+#-------------------------------
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -66,7 +115,9 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
-
+#---------------------------}}}2
+# Plugins					{{{
+#-------------------------------
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
@@ -78,11 +129,12 @@ plugins=(
   python
   zsh-completions
 )
+# }}}
+# User configuration	{{{
+#-------------------------------
 
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 source $ZSH/oh-my-zsh.sh
-
-
-# User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -101,50 +153,14 @@ source $ZSH/oh-my-zsh.sh
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-alias neofetch="echo && neofetch"
-alias print256colours="bash /home/ravi/Documents/Code/Scripts/print256colours.sh"
-alias mpvur="mpv --profile=ur"
-alias mpvbr="mpv --profile=br"
-alias colorblocks="python /home/ravi/Documents/Code/Scripts/colorblocks/colorblocks.py"
-
-
-########################################
-# Completion
-########################################
-autoload -Uz compinit
-compinit
-
-
-########################################
-# Todo.sh
-########################################
-
-# path+=('/home/ravi/Documents/Linux/Tarballs/todo.txt_cli-2.11.0/todo.sh')
-alias t="todo.sh -cAtd ~/.todo/config"
-alias todoedit="$EDITOR ~/.todo/todo.txt"
-export TODO_ACTIONS_DIR=/home/ravi/.todo/actions
-export TODOTXT_DEFAULT_ACTION=ls
-
-
-
-#########################################
-# Stylization
-#########################################
-
+# }}}
+# POWERLEVEL9K Customization		{{{2
+#-------------------------------
+# # Segment Separators				{{{3
 #POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR=''
 #POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR=''
-
-#------------------
-# #	Icons
+# ------------------------------	}}}3
+# #	Icons							{{{3
 #------------------
 VCS_GIT_GITHUB_ICON='\uf406'
 POWERLEVEL9K_VCS_GIT_GITHUB_ICON='\uf7a3'
@@ -152,9 +168,8 @@ POWERLEVEL9K_TODO_ICON=
 POWERLEVEL9K_ROOT_ICON=
 POWERLEVEL9K_VCS_TAG_ICON=
 POWERLEVEL9K_HOME_ICON='\uf7db'
-
-#------------------
-# #	Custom Segments
+# ------------------------------	}}}3
+# #	Custom Segments					{{{3
 #------------------
 prompt_helloworld() {
 	local content='Ravi'
@@ -169,16 +184,13 @@ prompt_customtodo() {
     fi
   fi
 }
-
-#------------------
-# #	Prompt
+# ------------------------------	}}}3
+# #	Prompt							{{{3
 #------------------
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(root_indicator context dir dir_writable vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(vi_mode status customtodo background_jobs history)
-
-
-#------------------
-# #	Battery
+# ------------------------------	}}}3
+# #	Battery							{{{3
 #------------------
 # # #		Charging
 # POWERLEVEL9K_BATTERY_CHARGING_ICON=
@@ -193,27 +205,21 @@ POWERLEVEL9K_BATTERY_ICON=
 POWERLEVEL9K_BATTERY_VERBOSE=false
 
 POWERLEVEL9K_BATTERY_STAGES=($' ' $' ' $' ' $' ' $' ')
-
-
-#-------------------------
-# #	Background Jobs
+# ------------------------------	}}}3
+# #	Background Jobs					{{{3
 #-------------------------
 POWERLEVEL9K_BACKGROUND_JOBS_BACKGROUND='grey23'
 POWERLEVEL9K_BACKGROUND_JOBS_FOREGROUND='080'
-
-
-#------------------
-# #	Context
+# ------------------------------	}}}3
+# #	Context							{{{3
 #------------------
 POWERLEVEL9K_CONTEXT_DEFAULT_BACKGROUND='039'
 POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND='231'
 POWERLEVEL9K_CONTEXT_REMOTE_BACKGROUND='176'
 POWERLEVEL9K_CONTEXT_REMOTE_FOREGROUND='231'
-
-
-#------------------
-# #	DIR
-#------------------
+# ------------------------------	}}}3
+# #	DIR								{{{3
+#-------------------------------
 POWERLEVEL9K_DIR_DEFAULT_BACKGROUND='004'
 POWERLEVEL9K_DIR_DEFAULT_FOREGROUND='231'
 POWERLEVEL9K_DIR_HOME_BACKGROUND='006'
@@ -232,52 +238,41 @@ POWERLEVEL9K_HOME_ICON=''
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
 POWERLEVEL9K_SHORTEN_STRATEGY="default"
 POWERLEVEL9K_SHORTEN_DELIMITER='\uf752 '
-
-#------------------
-# #	DIR_WRITABLE
+# ------------------------------	}}}3
+# #	DIR_WRITABLE					{{{3
 #------------------
 #POWERLEVEL9K_DIRWRITABLE_BACKGROUND='204'
 #POWERLEVEL9K_DIRWRITABLE_FOREGROUND='015'
 POWERLEVEL9K_DIR_WRITABLE_FORBIDDEN_BACKGROUND='203'
 POWERLEVEL9K_DIR_WRITABLE_FORBIDDEN_FOREGROUND='254'
-
-
-#------------------
-# #	History
+# ------------------------------	}}}3
+# #	History							{{{3
 #------------------
 POWERLEVEL9K_HISTORY_BACKGROUND='grey15'
 POWERLEVEL9K_HISTORY_FOREGROUND='231'
-
-
-#------------------
-# #	STATUS
+#------------------------------		}}}3
+# #	STATUS							{{{3
 #------------------
 POWERLEVEL9K_STATUS_OK=false
 
 POWERLEVEL9K_STATUS_ERROR_BACKGROUND='204'
 POWERLEVEL9K_STATUS_ERROR_FOREGROUND='231'
 POWERLEVEL9K_STATUS_ERROR_VISUAL_IDENTIFIER_COLOR='015'
-
-
-#------------------
-# #	TODO	
+# ------------------------------	}}}3
+# #	TODO							{{{3
 #------------------
 POWERLEVEL9K_TODO_BACKGROUND='006'
 POWERLEVEL9K_TODO_FOREGROUND='231'
 POWERLEVEL9K_CUSTOMTODO_BACKGROUND='006'
 POWERLEVEL9K_CUSTOMTODO_FOREGROUND='231'
-
-
-#------------------
-# #	VI_MODE
+# ------------------------------	}}}3
+# #	VI_MODE							{{{3
 #------------------
 #POWERLEVEL9K_VI_INSERT_MODE_STRING=''
 POWERLEVEL9K_VI_INSERT_MODE_STRING=''
 POWERLEVEL9K_VI_COMMAND_MODE_STRING='NORMAL'
-
-
-#------------------
-# #	VCS
+# ------------------------------	}}}3
+# #	VCS								{{{3
 #------------------
 POWERLEVEL9K_VCS_CLEAN_BACKGROUND='080'
 POWERLEVEL9K_VCS_CLEAN_FOREGROUND='231'
@@ -287,13 +282,11 @@ POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='135'
 POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='231'
 # Customization
 POWERLEVEL9K_HIDE_BRANCH_ICON=true
-
-
-
-
-########################################
-#	Terminal Load
-########################################
+#-------------------------------	}}}3
+#-------------------------------	}}}2
+#===========================}}}1
+#	Terminal Startup Commands		{{{
+#======================================
 
 #function echo_blank() {
 #  echo
@@ -310,3 +303,4 @@ colorblocks -g 0 -m 20 -M 40 && tput cnorm
 
 # Show todo.txt
 todo.sh ls
+#===================================}}}

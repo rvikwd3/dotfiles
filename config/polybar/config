@@ -135,15 +135,16 @@ interval = 10
 
 ;format = <icon-mpv> <label>
 format = <label>
+format-prefix =  
 
-icon-mpv = 
+label-padding = 1
 label = %output:0:100:...%
 
 [module/mpd]
 type = internal/mpd
 ;format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
 format-online = <icon-seekb> <toggle> <label-song> <icon-seekf> 
-format-playing = <toggle>  <label-song>   <bar-progress>  
+format-playing = <toggle>  <label-song>   <bar-progress>
 format-paused = <icon-play>  <label-song>
 ;format-stopped = ﳌ
 format-stopped =
