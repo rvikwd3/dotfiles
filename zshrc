@@ -35,6 +35,8 @@ alias print256colours="bash /home/ravi/Documents/Code/Scripts/print256colours.sh
 alias mpvur="mpv --profile=ur"
 alias mpvbr="mpv --profile=br"
 alias colorblocks="python /home/ravi/Documents/Code/Scripts/colorblocks/colorblocks.py"
+
+alias lock="bash /home/ravi/Documents/Rice/i3lock/betterlockscreen"
 # Todo.sh				{{{2
 #---------------------------
 
