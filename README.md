@@ -13,10 +13,21 @@
     </tbody>
 </table>
 
-```.
+> A work in progress.  
+> It's nice to have rices to work on, they make for excellent artisanal satisfaction. ❤
+
+#### Applications
+
+| Shell | zsh + [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) |
+| Editor | vim + [pathogen](https://github.com/tpope/vim-pathogen) |
+| Music | mpd + [ncmpcpp](https://github.com/arybczak/ncmpcpp) |
+
+
+#### Directory Structure
+
+```\.
 ├── bash_profile  
 ├── bashrc  
-├── cat  
 ├── config  
 │   ├── dunst  
 │   ├── i3  
@@ -25,8 +36,6 @@
 │   └── polybar  
 │       ├── bars  
 │       ├── config  
-├── dotfiles  
-├── gitconfig  
 ├── ncmpcpp  
 ├── vimrc  
 └── zshrc  
