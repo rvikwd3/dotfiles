@@ -22,7 +22,7 @@
 	<tbody>
 		<tr>
 			<td>
-				<p>Shell 🖥</p>
+				<p>🖥 Shell</p>
 			</td>
             <td>
                 <p>zsh + <a href="https://github.com/robbyrussell/oh-my-zsh">oh-my-zsh</a></p>
@@ -30,7 +30,7 @@
         </tr>
 		<tr>
 			<td>
-				<p>Editor 🗒</p>
+				<p>🗒 Editor</p>
 			</td>
             <td>
                 <p>vim + <a href="https://github.com/tpope/vim-pathogen">pathogen</a></p>
@@ -38,7 +38,7 @@
         </tr>
 		<tr>
 			<td>
-				<p>Music 🎶</p>
+				<p>🎶 Music</p>
 			</td>
             <td>
                 <p>mpd + <a href="https://github.com/arybczak/ncmpcpp">ncmpcpp</a></p>
