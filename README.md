@@ -1,6 +1,4 @@
-<p align="center">
-<h1>dotfiles ~ ✦</h1>
-</p>
+<h1 align="center">dotfiles ~ ✦</h1>
 
 ```.
 ├── bash_profile  
