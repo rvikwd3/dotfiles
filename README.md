@@ -28,12 +28,24 @@
                 <p>zsh + <a href="https://github.com/robbyrussell/oh-my-zsh">oh-my-zsh</a></p>
             </td>
         </tr>
+		<tr>
+			<td>
+				<p>Editor</p>
+			</td>
+            <td>
+                <p>vim + <a href="https://github.com/tpope/vim-pathogen">pathogen</a></p>
+            </td>
+        </tr>
+		<tr>
+			<td>
+				<p>Music</p>
+			</td>
+            <td>
+                <p>mpd + <a href="https://github.com/arybczak/ncmpcpp">ncmpcpp</a></p>
+            </td>
+        </tr>
     </tbody>
 </table>
-| Shell | zsh + [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) |
-| Editor | vim + [pathogen](https://github.com/tpope/vim-pathogen) |
-| Music | mpd + [ncmpcpp](https://github.com/arybczak/ncmpcpp) |
-
 
 #### Directory Structure
 
