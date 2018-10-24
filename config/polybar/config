@@ -17,8 +17,10 @@
 ;==========================================================
 
 include-file = /home/ravi/.config/polybar/global.cfg
-include-file = /home/ravi/.config/polybar/bars/ravi.cfg
+;include-file = /home/ravi/.config/polybar/bars/ravi.cfg
 include-file = /home/ravi/.config/polybar/bars/example.cfg
+include-file = /home/ravi/.config/polybar/bars/floating.cfg
+include-file = /home/ravi/.config/polybar/bars/workaround.cfg
 
 [module/xwindow]
 type = internal/xwindow
@@ -127,7 +129,7 @@ label-urgent-padding = 2
 [module/mpv]
 type = custom/script
 
-exec = /home/ravi/Documents/Code/Scripts/polybar-mpv.sh
+exec = /home/ravi/Documents/Code/Scripts/ConfigScripts/polybar-mpv.sh
 exec-if = pgrep -x mpv
 
 tail = false

@@ -15,6 +15,8 @@
 "
 execute pathogen#infect()
 
+set path+=/usr/local/include
+
 syntax on					" enable syntax processing
 filetype plugin indent on	" load filetype-specific indent files
 set t_Co=256				" 256-color terminal
@@ -45,6 +47,27 @@ let g:gundo_preview_height = 20				" height of bottom preview pane
 let g:gundo_preview_bottom = 0				" enable preview below main window
 let g:gundo_right = 1						" gundo pane on right side
 "----------------------------------------		}}}
+"	Goyo 										{{{
+"-----------------------------------------
+
+let g:goyo_width = 80
+let g:goyo_height = 25
+let g:goyo_linenr = 1
+
+" Callback functions
+function! s:goyo_enter()
+	set nonumber
+	set norelativenumber
+endfunction
+
+function! s:goyo_leave()
+	set number relativenumber
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
+
+"-----------------------------------------		}}}
 "---------------------------------------------------------------------------}}}1
 " ATTRIBUTES ---------------------------------------------------------------{{{1
 " 	Basic Options				{{{
@@ -55,7 +78,9 @@ set showcmd						" show last command on statusbar
 set number relativenumber		" enable hybrid relative numbering
 
 set tabstop=4					" 4 spaces for each tab
-set softtabstop=4				" 4 spaces for inserting tab
+"set softtabstop=4				" 4 spaces for inserting tab
+set shiftwidth=4				" Purely tab indentation
+"set expandtab					" insert spaces instead of tab (use ^V<Tab> for normal tab)
 
 set wildmenu					" visual autocomplete for commands
 set showmatch					" highlight matching braces/paranthesis
@@ -77,7 +102,8 @@ set splitright					" new split right
 
 colorscheme minimalist
 
-hi Normal           ctermfg=255     ctermbg=NONE    cterm=NONE		guifg=#EEEEEE       guibg=NONE		gui=NONE
+hi NonText          ctermfg=234     ctermbg=NONE    cterm=NONE      guifg=#1C1C1C       guibg=NONE   gui=NONE
+hi Normal           ctermfg=255     ctermbg=000     cterm=NONE		guifg=#EEEEEE       guibg=NONE		gui=NONE
 hi Comment			ctermfg=246	    ctermbg=NONE    cterm=NONE      guifg=#9B9B9B		guibg=NONE      gui=NONE
 
 "----------------------------------------	}}}
@@ -167,6 +193,15 @@ nnoremap <leader>ww mz:%s/\s\+$//<cr>:let @/=''<cr>`z
 
 " Rebuild Ctags (mnemonic RC -> CR -> <cr>)
 nnoremap <leader><cr> :silent !myctags >/dev/null 2>&1 &<cr>:redraw!<cr>
+
+" Remove backspace from Ctrl+Shift+V paste
+nnoremap <leader>/ :s/\\//g<CR>
+
+" Edit recently opened files
+nnoremap <leader>1 :'1<CR>
+
+" Enter & leave Goyo mode
+nnoremap <leader>g :Goyo<CR>
 
 " "Uppercase word" mapping.
 " Explanation {{{

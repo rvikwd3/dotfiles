@@ -10,7 +10,7 @@
 # Ravikiran Kawade
 # Last Updated: 2018-09-29
 
-# Preamble				{{{
+# Preamble                  {{{
 #===========================
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -19,7 +19,7 @@ JAVA_HOME=/usr/lib/jvm/java-8-openjdk
 
 (cat /home/ravi/.cache/wal/sequences &) # Run Python-PyWal 
 #========================}}}
-# Aliases				{{{1
+# Aliases {{{1
 #===========================
 #
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
@@ -31,13 +31,17 @@ JAVA_HOME=/usr/lib/jvm/java-8-openjdk
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias neofetch="echo && neofetch"
-alias print256colours="bash /home/ravi/Documents/Code/Scripts/print256colours.sh"
+alias print256colours="bash /home/ravi/Documents/Code/Scripts/colors/print256colours.sh"
 alias mpvur="mpv --profile=ur"
 alias mpvbr="mpv --profile=br"
-alias colorblocks="python /home/ravi/Documents/Code/Scripts/colorblocks/colorblocks.py"
 
 alias lock="bash /home/ravi/Documents/Rice/i3lock/betterlockscreen"
-# Todo.sh				{{{2
+
+alias clock="/home/ravi/Documents/Rice/tty-clock/tty-clock -bBcSt"
+
+# Don't correct
+alias unison="nocorrect unison "
+# Todo.sh {{{2
 #---------------------------
 
 # path+=('/home/ravi/Documents/Linux/Tarballs/todo.txt_cli-2.11.0/todo.sh')
@@ -47,13 +51,37 @@ export TODO_ACTIONS_DIR=/home/ravi/.todo/actions
 export TODOTXT_DEFAULT_ACTION=ls
 #-----------------------}}}2
 #=======================}}}1
-# Completion			{{{
+# Functions {{{1
+#===========================
+
+# http://danishprakash.github.io/2018/08/03/command-line-dir-switcher.html
+# Fuzzy directory switcher
+function quick_find () {
+    dir=$(find ~/Documents -type d -not -path '*/\.*' -maxdepth 3 | fzf)
+    cd $dir
+    zle reset-prompt
+}
+
+zle -N quick_find_widget quick_find # bind the function to a widget
+
+#function echo_blank() {
+#  echo
+#  echo
+#}
+#preexec_functions+=echo_blank
+#precmd_functions+=echo_blank
+
+#=======================}}}1
+# Completion                {{{
 #==========================
+
+# fuzzfy file finder
+source /usr/share/fzf/completion.zsh
 
 autoload -Uz compinit
 compinit
 #=======================}}}
-# OH-MY-ZSH					{{{1
+# OH-MY-ZSH	 {{{1
 #===============================
 # Path to your oh-my-zsh installation.
   export ZSH="/home/ravi/.oh-my-zsh"
@@ -67,7 +95,7 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 POWERLEVEL9K_MODE=nerdfont-fontconfig
 . /usr/lib/python3.7/site-packages/powerline/bindings/zsh/powerline.zsh
 
-# OhMyZsh Defaults			{{{2
+# OhMyZsh Defaults {{{2
 #-------------------------------
 
 # Set list of themes to load
@@ -118,7 +146,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 #---------------------------}}}2
-# Plugins					{{{
+# Plugins                   {{{
 #-------------------------------
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -132,7 +160,7 @@ plugins=(
   zsh-completions
 )
 # }}}
-# User configuration	{{{
+# User configuration        {{{
 #-------------------------------
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
@@ -156,20 +184,22 @@ source $ZSH/oh-my-zsh.sh
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 # }}}
-# POWERLEVEL9K Customization		{{{2
+# POWERLEVEL9K Customization {{{2
 #-------------------------------
 # # Segment Separators				{{{3
-#POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR=''
-#POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR=''
+POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR=''
+POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR=''
+POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR=''
+POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR=''
 # ------------------------------	}}}3
 # #	Icons							{{{3
 #------------------
-VCS_GIT_GITHUB_ICON='\uf406'
-POWERLEVEL9K_VCS_GIT_GITHUB_ICON='\uf7a3'
-POWERLEVEL9K_TODO_ICON=
+VCS_GIT_GITHUB_ICON=''
+POWERLEVEL9K_VCS_GIT_GITHUB_ICON=''
+POWERLEVEL9K_TODO_ICON=ﰧ
 POWERLEVEL9K_ROOT_ICON=
 POWERLEVEL9K_VCS_TAG_ICON=
-POWERLEVEL9K_HOME_ICON='\uf7db'
+POWERLEVEL9K_HOME_ICON=''
 # ------------------------------	}}}3
 # #	Custom Segments					{{{3
 #------------------
@@ -239,7 +269,7 @@ POWERLEVEL9K_HOME_ICON=''
 # Truncation
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
 POWERLEVEL9K_SHORTEN_STRATEGY="default"
-POWERLEVEL9K_SHORTEN_DELIMITER='\uf752 '
+POWERLEVEL9K_SHORTEN_DELIMITER=''
 # ------------------------------	}}}3
 # #	DIR_WRITABLE					{{{3
 #------------------
@@ -276,7 +306,7 @@ POWERLEVEL9K_VI_COMMAND_MODE_STRING='NORMAL'
 # ------------------------------	}}}3
 # #	VCS								{{{3
 #------------------
-POWERLEVEL9K_VCS_CLEAN_BACKGROUND='080'
+POWERLEVEL9K_VCS_CLEAN_BACKGROUND='074'
 POWERLEVEL9K_VCS_CLEAN_FOREGROUND='231'
 POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='069'
 POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND='231'
@@ -287,15 +317,19 @@ POWERLEVEL9K_HIDE_BRANCH_ICON=true
 #-------------------------------	}}}3
 #-------------------------------	}}}2
 #===========================}}}1
-#	Terminal Startup Commands		{{{
+# Keybindings               {{{
+#==========================
+
+# Bind danishprakash's function to Ctrl+P
+bindkey "^f" quick_find_widget
+
+# Source fzf's default keybindings
+source /usr/share/fzf/key-bindings.zsh
+
+#=======================}}}
+# Terminal Startup Commands {{{
 #======================================
 
-#function echo_blank() {
-#  echo
-#  echo
-#}
-#preexec_functions+=echo_blank
-#precmd_functions+=echo_blank
 
 # Show calendar agenda
 # gcalcli --calendar 'rvikwd7@gmail.com' agenda
