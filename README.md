@@ -25,7 +25,7 @@
 				<p>Shell</p>
 			</td>
             <td>
-                <p>zsh + oh-my-zsh</p>
+                <p>zsh + <a href="https://github.com/robbyrussell/oh-my-zsh">oh-my-zsh</a></p>
             </td>
         </tr>
     </tbody>
