@@ -22,6 +22,22 @@
 	<tbody>
 		<tr>
 			<td>
+				<p>◼️ Notifications</p>
+			</td>
+            <td>
+                <p><a href="https://github.com/dunst-project/dunst">dunst</a></p>
+            </td>
+        </tr>
+		<tr>
+			<td>
+				<p>📺 DE</p>
+			</td>
+            <td>
+                <p><a href="https://github.com/Airblader/i3">i3-gaps</a></p>
+            </td>
+        </tr>
+		<tr>
+			<td>
 				<p>🖥 Shell</p>
 			</td>
             <td>
