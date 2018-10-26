@@ -68,6 +68,19 @@ autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 "-----------------------------------------		}}}
+"	Syntastic									{{{
+"-----------------------------------------
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+"-----------------------------------------		}}}
 "---------------------------------------------------------------------------}}}1
 " ATTRIBUTES ---------------------------------------------------------------{{{1
 " 	Basic Options				{{{
