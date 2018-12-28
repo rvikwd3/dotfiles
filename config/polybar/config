@@ -126,6 +126,14 @@ label-urgent-padding = 2
 ; Separator in between workspaces
 ; label-separator = |
 
+[module/spotify]
+type = custom/script
+interval = 1
+format-prefix = "阮 "
+format = <label>
+exec = python /home/ravi/Documents/Code/Scripts/ConfigScripts/spotify_status.py -f '{artist} - {song}'
+format_underline = #1db954
+
 [module/mpv]
 type = custom/script
 
@@ -137,7 +145,7 @@ interval = 10
 
 ;format = <icon-mpv> <label>
 format = <label>
-format-prefix =  
+format-prefix = 奈 
 
 label-padding = 1
 label = %output:0:100:...%
