@@ -131,7 +131,7 @@ type = custom/script
 interval = 1
 format-prefix = "阮 "
 format = <label>
-exec = python /home/ravi/Documents/Code/Scripts/ConfigScripts/spotify_status.py -f '{artist} - {song}'
+exec = python /home/ravi/Documents/Code/Scripts/ConfigScripts/spotify_status.py -f '{artist} - {song}' -t 50
 format_underline = #1db954
 
 [module/mpv]
