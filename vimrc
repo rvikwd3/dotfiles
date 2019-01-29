@@ -241,6 +241,9 @@ nnoremap <leader>g :Goyo<CR>
 " Note that this will overwrite the contents of the z mark.  I never use it, but
 " if you do you'll probably want to use another mark.}}}
 inoremap <C-u> <esc>mzgUiw`za
+
+" Run Astyle Code Formatter
+nnoremap <leader>a :%!astyle
 "----------------------------------------									}}}2
 "	Autocommands															{{{
 "----------------------------------------

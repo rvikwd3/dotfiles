@@ -20,6 +20,9 @@ bindsym $mod+KP_Begin move absolute position center
 # bindsym $mod+Return exec xfce4-terminal -e "gcalcli --calendar 'rvikwd7@gmail.com' calw"
 bindsym $mod+Return exec WINIT_HIDPI_FACTOR=1.0 i3-sensible-terminal
 
+# Make floating window sticky
+bindsym $mod+Shift+S sticky toggle
+
 # for_window [class="Alacritty"] dfasdlfkaesize sh# rink width 10000px; resize grow width 785px, resize shrink height 10000px; resize grow height 400px;
 # kill focused window
 bindsym $mod+Shift+q kill
