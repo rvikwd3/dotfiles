@@ -39,8 +39,11 @@ alias lock="bash /home/ravi/Documents/Rice/i3lock/betterlockscreen"
 
 alias clock="/home/ravi/Documents/Rice/tty-clock/tty-clock -bBcSt"
 
+alias gvd="git difftool --tool=vimdiff"
+
 # Don't correct
 alias unison="nocorrect unison "
+alias gcalcli="nocorrect gcalcli "
 # Todo.sh {{{2
 #---------------------------
 
@@ -70,6 +73,25 @@ zle -N quick_find_widget quick_find # bind the function to a widget
 #}
 #preexec_functions+=echo_blank
 #precmd_functions+=echo_blank
+
+
+# An alias for 'gcalcli'
+# Uses agenda as default parameter unless specified
+function gcal () {
+	if [ $# -eq 0 ]; then		# If no parameters, default to agenda
+		gcalcli agenda $(date +"%D") "11:59pm"
+	else
+		case "$1" in
+			"m")	gcalcli calm	# Calendar month
+					;;
+			"w")	gcalcli calw	# Calendar week
+					;;
+			*)		gcalcli ${@:1:2}	# Replay arguments to gcalcli
+					;;
+		esac
+	fi
+}
+
 
 #=======================}}}1
 # Completion                {{{
