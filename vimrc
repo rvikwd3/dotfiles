@@ -81,6 +81,18 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 "-----------------------------------------		}}}
+"	NERDTree									{{{
+"-----------------------------------------
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+let NERDTreeQuitOnOpen = 1
+let NERDTreeAutoDeleteBuffer = 1
+
+" Characters to use for directory structure
+let g:NERDTreeDirArrowExpandable = '┃'
+let g:NERDTreeDirArrowCollapsible = '┗'
+
+"-----------------------------------------		}}}
 "---------------------------------------------------------------------------}}}1
 " ATTRIBUTES ---------------------------------------------------------------{{{1
 " 	Basic Options				{{{
@@ -244,6 +256,15 @@ inoremap <C-u> <esc>mzgUiw`za
 
 " Run Astyle Code Formatter
 nnoremap <leader>a :%!astyle
+
+" NERDTree Commands
+" ┃ Toggle NERDTree
+nmap <leader>f :NERDTreeToggle<cr>
+" ┃ Open current file in NERDTree
+nnoremap <silent> <leader>v :NERDTreeFind<cr>
+
+" Toggle numbering
+nnoremap <leader>n :set nonumber! relativenumber!<cr>
 "----------------------------------------									}}}2
 "	Autocommands															{{{
 "----------------------------------------
@@ -262,6 +283,21 @@ augroup trailing				" Only shown when not in insert mode so I don't go insane.
     au InsertLeave * :set listchars+=trail:⌴
 augroup END
 "}}}
+
+" NERDTree Autocommands {{{
+
+" ┃ Open a NERDTree if no commandline arguments given to vim
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+" ┃ Close tab if only remaining window is NERDTree
+autocmd bufenter * if (winnr("$") == 1
+	\ && exists("b:NERDTreeType")
+	\ && b:NERDTreeType == "primary")
+	\ | q | endif
+
+autocmd BufReadPre,FileReadPre * :NERDTreeClose
+" }}}
 "----------------------------------------									}}}
 "---------------------------------------------------------------------------}}}1
 
