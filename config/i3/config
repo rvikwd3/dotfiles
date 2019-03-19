@@ -231,7 +231,7 @@ exec --no-startup-id polybar workaround
 #set $ocdir	exec bash /home/ravi/Documents/Code/Scripts/random-wallpaper-folder.sh
 #exec		 notify-send "Dir is=$ocdir"
 #	Load Dunst with ~/.cache/wal/colors.Xresources colors
-exec_always	wal -i "/home/ravi/Pictures/Wall/2019February" && ~/Documents/Code/Scripts/i3-reload-dunst.sh
+exec_always	wal -i "/home/ravi/Pictures/Wall/2019March" && ~/Documents/Code/Scripts/i3-reload-dunst.sh
 
 # Set lockscreen wallpaper for betterlockscreen
 exec bash /home/ravi/Documents/Rice/i3lock/rectangle_lock -u "/home/ravi/Pictures/Wall/Lock" && notify-send "Updated lockscreen wall" "Saved in ~/.cache/i3lock/current"

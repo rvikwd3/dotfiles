@@ -265,6 +265,9 @@ nnoremap <silent> <leader>v :NERDTreeFind<cr>
 
 " Toggle numbering
 nnoremap <leader>n :set nonumber! relativenumber!<cr>
+
+" Toggle Syntastic Syntax Checker
+nnoremap <leader>st :SyntasticToggleMode<cr>
 "----------------------------------------									}}}2
 "	Autocommands															{{{
 "----------------------------------------

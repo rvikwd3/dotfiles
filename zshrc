@@ -30,15 +30,28 @@ JAVA_HOME=/usr/lib/jvm/java-8-openjdk
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# Quicklaunch aliases
+alias v="vim"
+alias r="ranger"
+
+# Make sure neofetch doesn't... actually I'm not quite sure why 'echo' is here
 alias neofetch="echo && neofetch"
+
+# Print 256-bit colormap in terminal
 alias print256colours="bash /home/ravi/Documents/Code/Scripts/colors/print256colours.sh"
+
+# Mpv profile aliases
 alias mpvur="mpv --profile=ur"
 alias mpvbr="mpv --profile=br"
 
+# Lock laptop using Mod+Shift+X
 alias lock="bash /home/ravi/Documents/Rice/i3lock/betterlockscreen"
 
+# Display a clock in the terminal
 alias clock="/home/ravi/Documents/Rice/tty-clock/tty-clock -bBcSt"
 
+# Use vimdiff as git's difftool
 alias gvd="git difftool --tool=vimdiff"
 
 # Don't correct
