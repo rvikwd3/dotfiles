@@ -87,8 +87,6 @@ zle -N quick_find_widget quick_find # bind the function to a widget
 #preexec_functions+=echo_blank
 #precmd_functions+=echo_blank
 
-
-# An alias for 'gcalcli'
 # Uses agenda as default parameter unless specified
 function gcal () {
 	if [ $# -eq 0 ]; then		# If no parameters, default to agenda
@@ -374,4 +372,25 @@ colorblocks -g 0 -m 20 -M 40 && tput cnorm
 
 # Show todo.txt
 todo.sh ls
-#===================================}}}
+
+#=======================}}}
+# Anaconda - Conda {{{
+#======================================
+
+# added by Miniconda3 4.5.12 installer
+# >>> conda init >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$(CONDA_REPORT_ERRORS=false '/home/ravi/miniconda3/bin/conda' shell.bash hook 2> /dev/null)"
+ if [ $? -eq 0 ]; then
+     eval "$__conda_setup"
+ else
+     if [ -f "/home/ravi/miniconda3/etc/profile.d/conda.sh" ]; then
+		 . "/home/ravi/miniconda3/etc/profile.d/conda.sh"  # commented out by conda initialize
+         CONDA_CHANGEPS1=false conda activate base
+     else
+         export PATH="/home/ravi/miniconda3/bin:$PATH"
+     fi
+ fi
+ unset __conda_setup
+# <<< conda init <<<
+#=======================}}}
