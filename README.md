@@ -13,9 +13,6 @@
     </tbody>
 </table>
 
-> A work in progress.  
-> It's nice to have rices to work on, they make for excellent artisanal satisfaction. ❤
-
 #### Applications
 
 <table>
